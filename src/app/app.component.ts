@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { appState } from './app.reducer';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'redux-store';
+
+  data$: Observable<any>;
+
+  constructor(private store: Store<appState>){
+
+    this.data$ = store.select('message');
+
+  }
+
+  spanishMsg(){
+    this.store.dispatch( {
+      type: "SPANISH"
+    });
+
+  }
+
+  englishMsg(){
+    this.store.dispatch( {
+      type: "ENGLISH"
+    });
+  }
+
+  
 }

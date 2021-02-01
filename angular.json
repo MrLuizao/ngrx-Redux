@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "redux-store"
+  "defaultProject": "redux-store",
+  "cli": {
+    "analytics": "cd3c0d56-4503-44a6-a2f7-605674024acc"
+  }
 }
