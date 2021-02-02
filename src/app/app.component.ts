@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { appState } from './app.reducer';
+import * as fromMessage from './message.action';
 
 @Component({
   selector: 'app-root',
@@ -19,16 +20,12 @@ export class AppComponent {
   }
 
   spanishMsg(){
-    this.store.dispatch( {
-      type: "SPANISH"
-    });
+    this.store.dispatch( new fromMessage.SpanishMessage('Hola Mundo!'));
 
   }
 
   englishMsg(){
-    this.store.dispatch( {
-      type: "ENGLISH"
-    });
+    this.store.dispatch( new fromMessage.EnglishMessage('Hellow World!'));
   }
 
   
